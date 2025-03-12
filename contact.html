@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 仙台大学AI教育研究チーム</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Hero Banner */
+        .page-hero {
+            position: relative;
+            background: var(--primary-color);
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+        }
+
+        .page-hero .container {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                height: 40vh;
+                margin-top: 70px;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Section Headers */
+        h2 {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--text-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin: 60px 0 30px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        h2 .en-title {
+            font-size: 1.1rem;
+            color: #666;
+            margin-left: 15px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.jpg" alt="仙台大学AI教育研究チーム">
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Navigation Menu -->
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="team.html">チーム紹介</a></li>
+                    <li class="has-dropdown">
+                        <a href="research.html">研究内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="research.html#themes">研究テーマ</a></li>
+                            <li><a href="research.html#results">研究成果</a></li>
+                            <li><a href="research.html#equipment">研究設備</a></li>
+                            <li><a href="research.html#collaboration">産学連携</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="education.html">教育活動 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="education.html#programs">AI教育プログラム</a></li>
+                            <li><a href="education.html#seminars">公開講座・セミナー</a></li>
+                            <li><a href="education.html#materials">教材開発</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="events.html">イベント</a></li>
+                    <li class="has-dropdown">
+                        <a href="publications.html">成果発表 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="publications.html#papers">論文リスト</a></li>
+                            <li><a href="publications.html#conferences">学会発表</a></li>
+                            <li><a href="publications.html#projects">プロジェクト成果</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="contact.html" class="active">お問い合わせ <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="contact.html#contact">連絡先</a></li>
+                            <li><a href="contact.html#form">お問い合わせフォーム</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="ai-chat.html">AI チャット</a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="links.html">関連リンク <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="links.html#university">仙台大学の関連ページ</a></li>
+                            <li><a href="links.html#conferences">学会リンク</a></li>
+                            <li><a href="links.html#sitemap">サイトマップ</a></li>
+                            <li><a href="links.html#privacy">プライバシーポリシー</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="page-hero contact-hero">
+        <div class="container">
+            <h1>お問い合わせ</h1>
+            <p>研究に関する質問やコラボレーションのご相談をお待ちしております</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>連絡先<span class="en-title">Contact Information</span></h2>
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>メールアドレス</h3>
+                    <p><a href="mailto:ai-team@sendai-u.ac.jp">ai-team@sendai-u.ac.jp</a></p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>電話番号</h3>
+                    <p>0224-55-1121</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>住所</h3>
+                    <p>〒989-1693<br>宮城県柴田郡柴田町船岡南2-2-18<br>仙台大学AI教育研究チーム事務局（齋藤研究室）</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="form" class="section">
+        <div class="container">
+            <h2>お問い合わせフォーム</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">お名前</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">件名</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">メッセージ</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">送信</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>仙台大学AI教育研究チーム</h3>
+                    <p>最先端のAI技術を活用した教育と研究を推進。</p>
+                    <p>〒989-1693 宮城県柴田郡柴田町船岡南2-2-18</p>
+                    <p>TEL: 0224-55-1121</p>
+                    <p>Email: ai-team@sendai-u.ac.jp</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>リンク</h3>
+                    <ul>
+                        <li><a href="team.html">チーム紹介</a></li>
+                        <li><a href="research.html">研究内容</a></li>
+                        <li><a href="education.html">教育活動</a></li>
+                        <li><a href="publications.html">成果発表</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>最新情報</h3>
+                    <ul>
+                        <li><a href="news.html">ニュース</a></li>
+                        <li><a href="events.html">イベント情報</a></li>
+                        <li><a href="blog.html">ブログ</a></li>
+                        <li><a href="newsletter.html">ニュースレター</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>フォロー</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 仙台大学AI教育研究チーム. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

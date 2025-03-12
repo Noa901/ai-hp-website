@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究内容 | 仙台大学AI教育研究チーム</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.jpg" alt="仙台大学AI教育研究チーム">
+                </a>
+
+                <!-- 汉堡菜单按钮（移动端） -->
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- 导航菜单 -->
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    
+                    <li class="has-dropdown">
+                        <a href="team.html">チーム <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="team.html#about">チーム名とロゴ</a></li>
+                            <li><a href="team.html#mission">ミッション・ビジョン</a></li>
+                            <li><a href="team.html#members">メンバー紹介</a></li>
+                            <li><a href="team.html#history">チームの沿革</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="research.html" class="active">研究内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="research.html#themes">研究テーマ</a></li>
+                            <li><a href="research.html#results">研究成果</a></li>
+                            <li><a href="research.html#equipment">研究設備</a></li>
+                            <li><a href="research.html#collaboration">産学連携</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="education.html">教育活動 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="education.html#programs">AI教育プログラム</a></li>
+                            <li><a href="education.html#seminars">公開講座・セミナー</a></li>
+                            <li><a href="education.html#materials">教材開発</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="events.html">イベント</a></li>
+
+                    <li class="has-dropdown">
+                        <a href="publications.html">成果発表 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="publications.html#papers">論文リスト</a></li>
+                            <li><a href="publications.html#conferences">学会発表</a></li>
+                            <li><a href="publications.html#projects">プロジェクト成果</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    <li><a href="ai-chat.html">AI チャット</a></li>
+                    <li class="has-dropdown">
+                        <a href="links.html">関連リンク <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="links.html#university">仙台大学の関連ページ</a></li>
+                            <li><a href="links.html#conferences">学会リンク</a></li>
+                            <li><a href="links.html#sitemap">サイトマップ</a></li>
+                            <li><a href="links.html#privacy">プライバシーポリシー</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="research-hero">
+        <div class="container">
+            <h1>研究内容</h1>
+            <p>最新のAI技術を活用し、スポーツと教育の未来を切り拓く。</p>
+        </div>
+    </section>
+
+    <!-- 研究テーマ -->
+    <section id="themes" class="research-topics">
+        <div class="container">
+            <h2>研究テーマ <span class="en-title">Research Themes</span></h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <div class="topic-image">
+                        <img src="images/research-ai.jpg" alt="AIとスポーツ">
+                    </div>
+                    <div class="topic-content">
+                        <h3>AIとスポーツ</h3>
+                        <p>AIを活用したスポーツパフォーマンス解析と選手のトレーニング支援システムの開発。動作解析、戦術分析、コンディショニング管理など、多角的なアプローチで研究を進めています。</p>
+                        <a href="#" class="topic-link">詳しく見る <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-image">
+                        <img src="images/research-education.jpg" alt="教育×AI">
+                    </div>
+                    <div class="topic-content">
+                        <h3>教育×AI</h3>
+                        <p>AIを活用した教育プログラムの開発と学習効果の最適化研究。個別最適化された学習支援システム、教育データ分析、学習者モデリングなどを研究しています。</p>
+                        <a href="#" class="topic-link">詳しく見る <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-image">
+                        <img src="images/research-health.jpg" alt="健康データ解析">
+                    </div>
+                    <div class="topic-content">
+                        <h3>健康データ解析</h3>
+                        <p>AIを用いた健康・運動データの解析によるライフスタイル改善研究。ウェアラブルデバイスからのデータ収集、健康リスク予測、運動処方の最適化を研究しています。</p>
+                        <a href="#" class="topic-link">詳しく見る <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 研究成果 -->
+    <section id="results" class="research-results">
+        <div class="container">
+            <h2>研究成果 <span class="en-title">Research Achievements</span></h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-date">2024年</div>
+                    <div class="result-content">
+                        <h3>国際会議発表</h3>
+                        <p>「AIを活用したスポーツトレーニングシステムの開発と実践」</p>
+                        <span class="result-venue">International Conference on AI & Sports, Tokyo</span>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div class="result-date">2023年</div>
+                    <div class="result-content">
+                        <h3>論文掲載</h3>
+                        <p>「機械学習を用いたアスリートの動作解析に関する研究」</p>
+                        <span class="result-venue">AI & Sports Science Journal, Vol. 15</span>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div class="result-date">2022年</div>
+                    <div class="result-content">
+                        <h3>研究プロジェクト完了</h3>
+                        <p>「AIと教育の融合による学習最適化システムの構築」</p>
+                        <span class="result-venue">文部科学省助成研究</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 研究設備 -->
+    <section id="equipment" class="research-equipment">
+        <div class="container">
+            <h2>研究設備 <span class="en-title">Research Facilities</span></h2>
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="images/lab-ai.jpg" alt="AI研究室">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>AI研究室</h3>
+                        <p>最新のGPUサーバーと機械学習環境を完備した研究施設です。</p>
+                        <ul class="equipment-features">
+                            <li><i class="fas fa-microchip"></i> 高性能GPUクラスター</li>
+                            <li><i class="fas fa-database"></i> 大規模データ処理システム</li>
+                            <li><i class="fas fa-network-wired"></i> 高速ネットワーク環境</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="images/lab-sports.jpg" alt="スポーツデータラボ">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>スポーツデータラボ</h3>
+                        <p>最新のモーションキャプチャーシステムと生体センサーを備えた実験施設です。</p>
+                        <ul class="equipment-features">
+                            <li><i class="fas fa-running"></i> 3Dモーション解析システム</li>
+                            <li><i class="fas fa-heartbeat"></i> 生体データ計測機器</li>
+                            <li><i class="fas fa-camera"></i> ハイスピードカメラ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 産学連携 -->
+    <section id="collaboration" class="industry-collaboration">
+        <div class="container">
+            <h2>産学連携 <span class="en-title">Industry Collaboration</span></h2>
+            <p class="section-description">AI技術を産業界と連携し、実社会での課題解決に取り組んでいます。</p>
+            <div class="collaboration-grid">
+                <div class="collaboration-card">
+                    <div class="collaboration-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>スポーツテック企業との共同研究</h3>
+                    <p>AIによるアスリートのパフォーマンス分析システムの開発</p>
+                    <ul class="collaboration-details">
+                        <li>動作解析AIの開発</li>
+                        <li>トレーニング最適化システム</li>
+                        <li>リアルタイムフィードバック機能</li>
+                    </ul>
+                </div>
+                <div class="collaboration-card">
+                    <div class="collaboration-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>教育機関との連携プロジェクト</h3>
+                    <p>AI支援による個別最適化学習システムの構築</p>
+                    <ul class="collaboration-details">
+                        <li>学習者分析AI</li>
+                        <li>カリキュラム最適化</li>
+                        <li>学習進捗管理システム</li>
+                    </ul>
+                </div>
+                <div class="collaboration-card">
+                    <div class="collaboration-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>ヘルスケア企業との協働</h3>
+                    <p>健康管理AIシステムの研究開発</p>
+                    <ul class="collaboration-details">
+                        <li>健康リスク予測AI</li>
+                        <li>運動処方最適化</li>
+                        <li>生活習慣改善支援</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>仙台大学AI教育研究チーム</h3>
+                    <p>最先端のAI技術を活用した教育と研究を推進。</p>
+                    <p>〒989-1693 宮城県柴田郡柴田町船岡南2-2-18</p>
+                    <p>TEL: 0224-55-1121</p>
+                    <p>Email: ai-team@sendai-u.ac.jp</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>リンク</h3>
+                    <ul>
+                        <li><a href="team.html">チーム紹介</a></li>
+                        <li><a href="research.html">研究内容</a></li>
+                        <li><a href="education.html">教育活動</a></li>
+                        <li><a href="publications.html">成果発表</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>最新情報</h3>
+                    <ul>
+                        <li><a href="news.html">ニュース</a></li>
+                        <li><a href="events.html">イベント情報</a></li>
+                        <li><a href="blog.html">ブログ</a></li>
+                        <li><a href="newsletter.html">ニュースレター</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>フォロー</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 仙台大学AI教育研究チーム. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const menu = document.querySelector('.nav-menu');
+        
+        menuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            menu.classList.toggle('active');
+            
+            // 防止菜单打开时页面滚动
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // 点击菜单项时关闭菜单
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                menu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // 下拉菜单功能
+        const dropdowns = document.querySelectorAll('.has-dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            
+            // 移动端点击展开
+            if (window.innerWidth <= 768) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                });
+            }
+            
+            // 桌面端悬停展开
+            else {
+                dropdown.addEventListener('mouseenter', () => {
+                    menu.style.display = 'block';
+                });
+                
+                dropdown.addEventListener('mouseleave', () => {
+                    menu.style.display = 'none';
+                });
+            }
+        });
+
+        // Smooth scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 108;
+                        const elementPosition = target.offsetTop;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

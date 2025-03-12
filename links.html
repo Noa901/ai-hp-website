@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関連リンク | 仙台大学AI教育研究チーム</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Hero Banner */
+        .links-hero {
+            position: relative;
+            background: url('images/sandaiuv.jpg') center/cover no-repeat;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+        }
+
+        .links-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .links-hero .container {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .links-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .links-hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .links-hero {
+                height: 40vh;
+                margin-top: 70px;
+            }
+
+            .links-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .links-hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Links Section */
+        .links-section {
+            padding: 60px 0;
+            background: #f9f9f9;
+        }
+
+        .links-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .links-group {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .links-group h2 {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--text-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .links-group h2 .en-title {
+            font-size: 1.1rem;
+            color: #666;
+            margin-left: 15px;
+            font-weight: normal;
+        }
+
+        .links-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-card a {
+            text-decoration: none;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .link-content {
+            flex-grow: 1;
+        }
+
+        .link-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .link-content p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .links-section {
+                padding: 40px 0;
+            }
+
+            .links-group {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .links-group h2 {
+                font-size: 1.8rem;
+            }
+
+            .links-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.jpg" alt="仙台大学AI教育研究チーム">
+                </a>
+                <button class="mobile-menu-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="team.html">チーム紹介</a></li>
+                    <li class="has-dropdown">
+                        <a href="research.html">研究内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="research.html">研究概要</a></li>
+                            <li><a href="research.html">研究プロジェクト</a></li>
+                            <li><a href="research.html">研究成果</a></li>
+                            <li><a href="research.html">共同研究</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="education.html">教育活動 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="education.html#programs">AI教育プログラム</a></li>
+                            <li><a href="education.html#seminars">公開講座・セミナー</a></li>
+                            <li><a href="education.html#materials">教材開発</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="events.html">イベント</a></li>
+                    <li class="has-dropdown">
+                        <a href="publications.html">成果発表 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="publications.html#papers">論文リスト</a></li>
+                            <li><a href="publications.html#conferences">学会発表</a></li>
+                            <li><a href="publications.html#projects">プロジェクト成果</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="contact.html">お問い合わせ <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="contact.html#contact">連絡先</a></li>
+                            <li><a href="contact.html#form">お問い合わせフォーム</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="ai-chat.html">AI チャット</a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="links.html" class="active">関連リンク <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="links.html#university">仙台大学の関連ページ</a></li>
+                            <li><a href="links.html#conferences">学会リンク</a></li>
+                            <li><a href="links.html#sitemap">サイトマップ</a></li>
+                            <li><a href="links.html#privacy">プライバシーポリシー</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="page-hero links-hero">
+        <div class="container">
+            <h1>関連リンク</h1>
+            <p>仙台大学および関連機関へのリンク集</p>
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section class="links-section">
+        <div class="links-container">
+            <!-- 仙台大学の関連ページ -->
+            <div class="links-group" id="university">
+                <h2>仙台大学の関連ページ<span class="en-title">University Links</span></h2>
+                <div class="links-list">
+                    <div class="link-card">
+                        <a href="https://www.sendaidaigaku.jp/" target="_blank">
+                            <span class="link-icon"><i class="fas fa-university"></i></span>
+                            <div class="link-content">
+                                <h3>仙台大学 公式サイト</h3>
+                                <p>大学の最新情報、入試情報、研究活動などをご覧いただけます</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <a href="https://www.sendaidaigaku.jp/gakubu.html?post=59&name=taiiku" target="_blank">
+                            <span class="link-icon"><i class="fas fa-graduation-cap"></i></span>
+                            <div class="link-content">
+                                <h3>学部・学科情報</h3>
+                                <p>各学部・学科の詳細な情報と特色をご紹介</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <a href="https://www.sendaidaigaku.jp/research.html" target="_blank">
+                            <span class="link-icon"><i class="fas fa-flask"></i></span>
+                            <div class="link-content">
+                                <h3>研究活動</h3>
+                                <p>本学の研究活動や成果についての情報</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 学会リンク -->
+            <div class="links-group" id="conferences">
+                <h2>学会リンク<span class="en-title">Academic Societies</span></h2>
+                <div class="links-list">
+                    <div class="link-card">
+                        <a href="#" target="_blank">
+                            <span class="link-icon"><i class="fas fa-users"></i></span>
+                            <div class="link-content">
+                                <h3>日本スポーツ情報学会</h3>
+                                <p>スポーツ情報に関する研究と実践</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <a href="#" target="_blank">
+                            <span class="link-icon"><i class="fas fa-brain"></i></span>
+                            <div class="link-content">
+                                <h3>人工知能学会</h3>
+                                <p>AI研究の最新動向と学術情報</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <a href="#" target="_blank">
+                            <span class="link-icon"><i class="fas fa-dumbbell"></i></span>
+                            <div class="link-content">
+                                <h3>日本体育学会</h3>
+                                <p>体育・スポーツに関する研究と実践</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- サイトマップ -->
+            <div class="links-group" id="sitemap">
+                <h2>サイトマップ<span class="en-title">Site Map</span></h2>
+                <div class="links-list">
+                    <div class="link-card">
+                        <a href="team.html">
+                            <span class="link-icon"><i class="fas fa-users"></i></span>
+                            <div class="link-content">
+                                <h3>チーム紹介</h3>
+                                <p>研究チームのメンバーと活動内容</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <a href="research.html">
+                            <span class="link-icon"><i class="fas fa-microscope"></i></span>
+                            <div class="link-content">
+                                <h3>研究内容</h3>
+                                <p>現在進行中の研究プロジェクト</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <a href="education.html">
+                            <span class="link-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                            <div class="link-content">
+                                <h3>教育活動</h3>
+                                <p>教育プログラムと学習支援</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- プライバシーポリシー -->
+            <div class="links-group" id="privacy">
+                <h2>プライバシーポリシー<span class="en-title">Privacy Policy</span></h2>
+                <div class="links-list">
+                    <div class="link-card">
+                        <a href="#">
+                            <span class="link-icon"><i class="fas fa-shield-alt"></i></span>
+                            <div class="link-content">
+                                <h3>個人情報保護方針</h3>
+                                <p>当サイトにおける個人情報の取り扱いについて</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <a href="#">
+                            <span class="link-icon"><i class="fas fa-cookie"></i></span>
+                            <div class="link-content">
+                                <h3>Cookie ポリシー</h3>
+                                <p>Cookieの使用と管理について</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <a href="#">
+                            <span class="link-icon"><i class="fas fa-file-contract"></i></span>
+                            <div class="link-content">
+                                <h3>利用規約</h3>
+                                <p>当サイトの利用に関する規約</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>仙台大学AI教育研究チーム</h3>
+                    <p>最先端のAI技術を活用した教育と研究を推進。</p>
+                    <p>〒989-1693 宮城県柴田郡柴田町船岡南2-2-18</p>
+                    <p>TEL: 0224-55-1121</p>
+                    <p>Email: ai-team@sendai-u.ac.jp</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>リンク</h3>
+                    <ul>
+                        <li><a href="team.html">チーム紹介</a></li>
+                        <li><a href="research.html">研究内容</a></li>
+                        <li><a href="education.html">教育活動</a></li>
+                        <li><a href="publications.html">成果発表</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>最新情報</h3>
+                    <ul>
+                        <li><a href="news.html">ニュース</a></li>
+                        <li><a href="events.html">イベント情報</a></li>
+                        <li><a href="blog.html">ブログ</a></li>
+                        <li><a href="newsletter.html">ニュースレター</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>フォロー</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 仙台大学AI教育研究チーム. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チーム紹介 | 仙台大学AI教育研究チーム</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Noto Sans JP 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.jpg" alt="">
+                </a>
+
+                <!-- 汉堡菜单按钮（移动端） -->
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- 导航菜单 -->
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    
+                    <li class="has-dropdown">
+                        <a href="team.html" class="active">チーム <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#about">チーム名とロゴ</a></li>
+                            <li><a href="#mission">ミッション・ビジョン</a></li>
+                            <li><a href="#members">メンバー紹介</a></li>
+                            <li><a href="#history">チームの沿革</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="research.html">研究内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="research.html#themes">研究テーマ</a></li>
+                            <li><a href="research.html#results">研究成果</a></li>
+                            <li><a href="research.html#equipment">研究設備</a></li>
+                            <li><a href="research.html#collaboration">産学連携</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="education.html">教育活動 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="education.html#programs">AI教育プログラム</a></li>
+                            <li><a href="education.html#seminars">公開講座・セミナー</a></li>
+                            <li><a href="education.html#materials">教材開発</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="events.html">イベント</a></li>
+
+                    <li class="has-dropdown">
+                        <a href="publications.html">成果発表 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="publications.html#papers">論文リスト</a></li>
+                            <li><a href="publications.html#conferences">学会発表</a></li>
+                            <li><a href="publications.html#projects">プロジェクト成果</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    <li><a href="ai-chat.html">AI チャット</a></li>
+                    <li class="has-dropdown">
+                        <a href="links.html">関連リンク <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="links.html#university">仙台大学の関連ページ</a></li>
+                            <li><a href="links.html#conferences">学会リンク</a></li>
+                            <li><a href="links.html#sitemap">サイトマップ</a></li>
+                            <li><a href="links.html#privacy">プライバシーポリシー</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- チーム紹介 Hero Section -->
+    <section class="team-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1>チーム紹介</h1>
+            <p>最先端のAI技術を活用した教育と研究を推進するチーム</p>
+        </div>
+    </section>
+
+    <!-- チーム名とロゴ -->
+    <section id="about" class="team-about">
+        <div class="container">
+            <h2>チーム名とロゴ <span class="en-title">Team Name and Logo</span></h2>
+            <div class="team-logo">
+                <img src="images/logo.jpg" alt="チームロゴ">
+                <div class="logo-description">
+                    <p>仙台大学AI教育研究チームのロゴは、教育とAI技術の融合を表現しています。</p>
+                    <p>緑色は成長と革新を、円形は継続的な学習と発展を象徴しています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section id="mission">
+        <div class="container">
+            <h2>ミッション・ビジョン <span class="en-title">Mission & Vision</span></h2>
+            <p class="mission-subtitle">生成AI時代の教育・研究を革新し、社会と共に発展する</p>
+
+            <p class="mission-text">
+                生成AIの急速な普及は、教育や研究のあり方を根本から変えつつあります。
+                私たちAI教育研究グループは、この変化を前向きに捉え、
+                AI技術を活用した新たな教育・研究モデルの構築を目指します。
+                また、教育機関・行政・企業・地域社会との連携を通じて、
+                AIがもたらす可能性を最大限に引き出し、社会全体に貢献することを使命とします。
+            </p>
+
+            <!-- 目标展示 -->
+            <div class="mission-goals">
+                <div class="goal-card">
+                    <h3>教育・研究の高度化</h3>
+                    <p>生成AIを活用した実験的教育実践の推進</p>
+                    <p>教員向けAIワークショップの開催</p>
+                    <p>先進的な実践やベストプラクティスの体系化</p>
+                </div>
+
+                <div class="goal-card">
+                    <h3>地域・社会との連携</h3>
+                    <p>小中高教員向け研修の開発・実施</p>
+                    <p>一般向けの公開講座・ワークショップの開催</p>
+                </div>
+
+                <div class="goal-card">
+                    <h3>学術・産業界との協働</h3>
+                    <p>学術シンポジウムや研究発表の実施</p>
+                    <p>教育・学術書の執筆・出版</p>
+                    <p>企業との共同研究および寄付講座の受け入れ</p>
+                </div>
+
+                <div class="goal-card">
+                    <h3>スポーツ・競技分野への貢献</h3>
+                    <p>AIを活用したパフォーマンス向上支援</p>
+                    <p>コーチングやモーション解析の高度化</p>
+                </div>
+            </div>
+
+            <div class="vision-box">
+                <h3>私たちのビジョン</h3>
+                <p>AIを適切に活用し、教育・研究の発展に寄与するとともに、 地域社会や行政、企業と共に成長する「共創型の学び」を実現します。</p>
+                <p>生成AIがもたらす課題にも対応しながら、未来の教育のあり方を探究し、 次世代に向けた持続可能な学びの環境を築いていきます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- チームメンバー -->
+    <section id="members" class="team-members">
+        <div class="container">
+            <h2>チームメンバー <span class="en-title">Team Members</span></h2>
+            <div class="members-grid">
+                <div class="member-card">
+                    <img src="images/saito-nagayuki.jpg" alt="齋藤 長行">
+                    <div class="member-name">
+                        <h3>齋藤 長行</h3>
+                        <span class="name-en">Saito Nagayuki</span>
+                    </div>
+                    <p>教授 / スポーツ・運動科学</p>
+                    <a href="https://www.sendaidaigaku.jp/teacher.html?name=saito-nagayuki" target="_blank" class="detail-button">
+                        詳細を見る <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="member-card">
+                    <img src="images/hashimoto-tomoaki.jpg" alt="橋本 智明">
+                    <div class="member-name">
+                        <h3>橋本 智明</h3>
+                        <span class="name-en">Hashimoto Tomoaki</span>
+                    </div>
+                    <p>准教授 / スポーツ教育学</p>
+                    <a href="https://www.sendaidaigaku.jp/teacher.html?name=hashimoto-tomoaki" target="_blank" class="detail-button">
+                        詳細を見る <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="member-card">
+                    <img src="images/yamaguchi-yasumasa.jpg" alt="山口 恭正">
+                    <div class="member-name">
+                        <h3>山口 恭正</h3>
+                        <span class="name-en">Yamaguchi Yasumasa</span>
+                    </div>
+                    <p>講師 / 体育・健康教育</p>
+                    <a href="https://www.sendaidaigaku.jp/teacher.html?name=yamaguchi-yasumasa" target="_blank" class="detail-button">
+                        詳細を見る <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- チーム沿革 -->
+    <section id="history" class="team-history">
+        <div class="container">
+            <h2>チームの沿革 <span class="en-title">Team History</span></h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2015年</div>
+                    <div class="timeline-content">
+                        <h3>AI教育研究チーム発足</h3>
+                        <p>仙台大学でAI教育研究チームを設立。初期メンバー5名でスタート。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018年</div>
+                    <div class="timeline-content">
+                        <h3>スポーツAI研究プロジェクト開始</h3>
+                        <p>文部科学省の助成を受け、スポーツとAIの融合研究を本格的に開始。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021年</div>
+                    <div class="timeline-content">
+                        <h3>国際学会での研究発表</h3>
+                        <p>ICAI2021で研究成果を発表し、Best Paper Awardを受賞。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年</div>
+                    <div class="timeline-content">
+                        <h3>産学連携プロジェクト始動</h3>
+                        <p>地域企業と連携し、AIを活用したスポーツ教育システムの開発を開始。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>仙台大学AI教育研究チーム</h3>
+                    <p>最先端のAI技術を活用した教育と研究を推進。</p>
+                    <p>〒989-1693 宮城県柴田郡柴田町船岡南2-2-18</p>
+                    <p>TEL: 0224-55-1121</p>
+                    <p>Email: ai-team@sendai-u.ac.jp</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>リンク</h3>
+                    <ul>
+                        <li><a href="team.html">チーム紹介</a></li>
+                        <li><a href="research.html">研究内容</a></li>
+                        <li><a href="education.html">教育活動</a></li>
+                        <li><a href="publications.html">成果発表</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>最新情報</h3>
+                    <ul>
+                        <li><a href="news.html">ニュース</a></li>
+                        <li><a href="events.html">イベント情報</a></li>
+                        <li><a href="blog.html">ブログ</a></li>
+                        <li><a href="newsletter.html">ニュースレター</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>フォロー</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 仙台大学AI教育研究チーム. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

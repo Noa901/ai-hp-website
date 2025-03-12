@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成果発表 | 仙台大学AI教育研究チーム</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Section Header Styles */
+        h2 {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--text-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin: 60px 0 30px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        h2 .en-title {
+            font-size: 1.1rem;
+            color: #666;
+            margin-left: 15px;
+            font-weight: normal;
+        }
+
+        /* Filter Styles */
+        .filter-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            margin: 20px 0 30px;
+            flex-wrap: wrap;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            color: #333;
+            min-width: 80px;
+        }
+
+        .filter-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            min-width: 150px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-select:hover {
+            border-color: var(--primary-color);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 150, 63, 0.1);
+        }
+
+        /* Publications Grid Styles */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* First h2 should not have top margin */
+        .publications-section h2:first-of-type {
+            margin-top: 0;
+        }
+
+        /* Card Styles */
+        .publication-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .card-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .card-meta span {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        .card-meta i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(0, 150, 63, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(0, 150, 63, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .filter-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+                padding: 15px;
+            }
+
+            .filter-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+
+            .publications-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Hero Banner */
+        .publications-hero {
+            position: relative;
+            background: url('images/publications.jpg') center/cover no-repeat;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+        }
+
+        .publications-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .publications-hero .container {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .publications-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .publications-hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .publications-hero {
+                height: 40vh;
+                margin-top: 70px;
+            }
+
+            .publications-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .publications-hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.jpg" alt="仙台大学AI教育研究チーム">
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Navigation Menu -->
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="team.html">チーム紹介</a></li>
+                    <li class="has-dropdown">
+                        <a href="research.html">研究内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="research.html#themes">研究テーマ</a></li>
+                            <li><a href="research.html#results">研究成果</a></li>
+                            <li><a href="research.html#equipment">研究設備</a></li>
+                            <li><a href="research.html#collaboration">産学連携</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="education.html">教育活動 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="education.html#programs">AI教育プログラム</a></li>
+                            <li><a href="education.html#seminars">公開講座・セミナー</a></li>
+                            <li><a href="education.html#materials">教材開発</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="events.html">イベント</a></li>
+                    <li class="has-dropdown">
+                        <a href="publications.html" class="active">成果発表 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="publications.html#papers">論文リスト</a></li>
+                            <li><a href="publications.html#conferences">学会発表</a></li>
+                            <li><a href="publications.html#projects">プロジェクト成果</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="contact.html">お問い合わせ <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="contact.html#contact">連絡先</a></li>
+                            <li><a href="contact.html#form">お問い合わせフォーム</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="ai-chat.html">AI チャット</a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="links.html">関連リンク <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="links.html#university">仙台大学の関連ページ</a></li>
+                            <li><a href="links.html#conferences">学会リンク</a></li>
+                            <li><a href="links.html#sitemap">サイトマップ</a></li>
+                            <li><a href="links.html#privacy">プライバシーポリシー</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="page-hero publications-hero">
+        <div class="container">
+            <h1>成果発表</h1>
+            <p>研究成果と学術発表の一覧</p>
+        </div>
+    </section>
+
+    <!-- Publications Grid -->
+    <section class="publications-section">
+        <div class="container">
+            <!-- 論文リスト -->
+            <h2 id="papers">論文リスト<span class="en-title">Journal Papers</span></h2>
+            <!-- Publications Filter -->
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="year-filter">年度</label>
+                    <select id="year-filter" class="filter-select">
+                        <option value="all">すべて</option>
+                        <option value="2024">2024年</option>
+                        <option value="2023">2023年</option>
+                        <option value="2022">2022年</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="category-filter">種類</label>
+                    <select id="category-filter" class="filter-select">
+                        <option value="all">すべて</option>
+                        <option value="journal">論文</option>
+                        <option value="conference">学会発表</option>
+                        <option value="book">著書</option>
+                        <option value="award">受賞</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="author-filter">著者</label>
+                    <select id="author-filter" class="filter-select">
+                        <option value="all">すべて</option>
+                        <option value="saito">齋藤浩二</option>
+                        <option value="yamada">山田太郎</option>
+                        <option value="suzuki">鈴木花子</option>
+                    </select>
+                </div>
+            </div>
+            <div class="publications-grid">
+                <div class="publication-card" data-category="journal" data-year="2024" data-author="saito">
+                    <div class="card-content">
+                        <h3 class="card-title">スポーツ科学におけるAIの活用と展望</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i>2024年</span>
+                            <span><i class="fas fa-book"></i>体育学研究</span>
+                        </div>
+                        <p class="authors">齋藤浩二, 山田太郎</p>
+                        <p class="journal">Vol. 69, No. 1, pp. 45-58</p>
+                        <div class="card-tags">
+                            <span class="tag">スポーツAI</span>
+                            <span class="tag">体育科学</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card" data-category="journal" data-year="2023" data-author="saito">
+                    <div class="card-content">
+                        <h3 class="card-title">AIを用いた運動フォーム分析システムの開発</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i>2023年</span>
+                            <span><i class="fas fa-book"></i>スポーツ工学研究</span>
+                        </div>
+                        <p class="authors">齋藤浩二, 鈴木花子</p>
+                        <p class="journal">Vol. 25, No. 3, pp. 112-125</p>
+                        <div class="card-tags">
+                            <span class="tag">動作分析</span>
+                            <span class="tag">機械学習</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 学会発表 -->
+            <h2 id="conferences">学会発表<span class="en-title">Conference Presentations</span></h2>
+            <div class="publications-grid">
+                <div class="publication-card" data-category="conference" data-year="2024" data-author="yamada">
+                    <div class="card-content">
+                        <h3 class="card-title">スポーツ指導現場におけるAIシステムの実践的活用</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i>2024年2月</span>
+                            <span><i class="fas fa-microphone"></i>日本体育学会</span>
+                        </div>
+                        <p class="authors">山田太郎, 齋藤浩二</p>
+                        <p class="conference">第75回大会, 仙台</p>
+                        <div class="card-tags">
+                            <span class="tag">指導支援</span>
+                            <span class="tag">実践研究</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card" data-category="conference" data-year="2023" data-author="suzuki">
+                    <div class="card-content">
+                        <h3 class="card-title">深層学習による運動動作の自動評価システム</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i>2023年11月</span>
+                            <span><i class="fas fa-microphone"></i>スポーツ情報学会</span>
+                        </div>
+                        <p class="authors">鈴木花子, 齋藤浩二</p>
+                        <p class="conference">第19回年次大会, 東京</p>
+                        <div class="card-tags">
+                            <span class="tag">深層学習</span>
+                            <span class="tag">動作評価</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- プロジェクト成果 -->
+            <h2 id="projects">プロジェクト成果<span class="en-title">Project Outcomes</span></h2>
+            <div class="publications-grid">
+                <div class="publication-card" data-category="project" data-year="2024" data-author="team">
+                    <div class="card-content">
+                        <h3 class="card-title">AIスポーツコーチングシステムの開発と実証実験</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i>2024年</span>
+                            <span><i class="fas fa-project-diagram"></i>研究プロジェクト</span>
+                        </div>
+                        <p class="authors">研究チーム：齋藤浩二, 山田太郎, 鈴木花子</p>
+                        <p class="project-details">文部科学省科学研究費補助金 基盤研究(B)</p>
+                        <div class="card-tags">
+                            <span class="tag">AI開発</span>
+                            <span class="tag">実証実験</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card" data-category="project" data-year="2023" data-author="team">
+                    <div class="card-content">
+                        <h3 class="card-title">地域スポーツにおけるAI活用プロジェクト</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i>2023年</span>
+                            <span><i class="fas fa-project-diagram"></i>地域連携事業</span>
+                        </div>
+                        <p class="authors">プロジェクトリーダー：齋藤浩二</p>
+                        <p class="project-details">宮城県スポーツ振興事業</p>
+                        <div class="card-tags">
+                            <span class="tag">地域貢献</span>
+                            <span class="tag">スポーツ振興</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>仙台大学AI教育研究チーム</h3>
+                    <p>最先端のAI技術を活用した教育と研究を推進。</p>
+                    <p>〒989-1693 宮城県柴田郡柴田町船岡南2-2-18</p>
+                    <p>TEL: 0224-55-1121</p>
+                    <p>Email: ai-team@sendai-u.ac.jp</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>リンク</h3>
+                    <ul>
+                        <li><a href="team.html">チーム紹介</a></li>
+                        <li><a href="research.html">研究内容</a></li>
+                        <li><a href="education.html">教育活動</a></li>
+                        <li><a href="publications.html">成果発表</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>最新情報</h3>
+                    <ul>
+                        <li><a href="news.html">ニュース</a></li>
+                        <li><a href="events.html">イベント情報</a></li>
+                        <li><a href="blog.html">ブログ</a></li>
+                        <li><a href="newsletter.html">ニュースレター</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>フォロー</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 仙台大学AI教育研究チーム. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

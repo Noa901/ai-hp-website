@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIチャット | 仙台大学AI教育研究チーム</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Hero Banner */
+        .ai-chat-hero {
+            position: relative;
+            background: url('images/ai-chat-bg.jpg') center/cover no-repeat;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+        }
+
+        .ai-chat-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .ai-chat-hero .container {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ai-chat-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .ai-chat-hero h1 .en-title {
+            display: block;
+            font-size: 1.8rem;
+            margin-top: 5px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .ai-chat-hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .ai-chat-hero {
+                height: 40vh;
+                margin-top: 70px;
+            }
+
+            .ai-chat-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .ai-chat-hero h1 .en-title {
+                font-size: 1.3rem;
+            }
+
+            .ai-chat-hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* AI Chat Section */
+        .ai-chat-section {
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            min-height: calc(100vh - 70px);
+        }
+
+        .ai-chat-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .ai-chat-section p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Chat Box */
+        .chat-box {
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+
+        /* Chat Header */
+        .chat-header {
+            padding: 15px 20px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Chat Messages */
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #fafafa;
+        }
+
+        /* Message Styles */
+        .message {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            max-width: 75%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: messageAppear 0.3s ease forwards;
+        }
+
+        @keyframes messageAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bot-message {
+            align-self: flex-start;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .bot-avatar,
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .bot-avatar {
+            background: var(--primary-color);
+        }
+
+        .user-avatar {
+            background: #42a5f5;
+        }
+
+        .avatar-status {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .bot-avatar .avatar-status {
+            background: #4CAF50;
+        }
+
+        .user-avatar .avatar-status {
+            background: #2196F3;
+        }
+
+        /* Chat Bubble */
+        .message p {
+            padding: 12px 16px;
+            border-radius: 15px;
+            margin: 0;
+            line-height: 1.5;
+            font-size: 1rem;
+            max-width: 100%;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .bot-message p {
+            background: #e8f5e9;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message p {
+            background: #e3f2fd;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 4px;
+            text-align: right;
+        }
+
+        /* Chat Input */
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background: #f5f5f5;
+            border-top: 1px solid #ddd;
+            gap: 10px;
+            position: relative;
+        }
+
+        .chat-input input {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            font-size: 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: white;
+            padding-right: 40px;
+        }
+
+        .chat-input input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 150, 63, 0.1);
+        }
+
+        .input-actions {
+            position: absolute;
+            right: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 5px;
+        }
+
+        .input-action-btn {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .input-action-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .chat-input button {
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-input button:hover {
+            background: var(--primary-hover);
+            transform: scale(1.05);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .chat-input button i {
+            font-size: 1.2rem;
+        }
+
+        /* Scrollbar Styling */
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+
+        /* Emoji Panel */
+        .emoji-panel {
+            position: absolute;
+            bottom: 100%;
+            right: 80px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: none;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+            width: 320px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .emoji-panel.active {
+            display: grid;
+        }
+
+        .emoji-item {
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .emoji-item:hover {
+            background: #f5f5f5;
+        }
+
+        .emoji-panel::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .emoji-panel::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .emoji-panel::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .emoji-panel::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+
+            .chat-sidebar {
+                display: none;
+            }
+
+            .ai-chat-section {
+                padding: 40px 15px;
+            }
+
+            .ai-chat-section h2 {
+                font-size: 2rem;
+            }
+
+            .chat-box {
+                border-radius: 10px;
+                height: calc(100vh - 200px);
+            }
+
+            .chat-messages {
+                height: auto;
+                padding: 15px;
+            }
+
+            .message {
+                max-width: 85%;
+            }
+
+            .bot-avatar,
+            .user-avatar {
+                width: 35px;
+                height: 35px;
+            }
+
+            .message p {
+                padding: 10px 14px;
+                font-size: 0.95rem;
+            }
+
+            .chat-input {
+                padding: 10px;
+            }
+
+            .chat-input input {
+                padding: 10px 15px;
+                font-size: 0.95rem;
+            }
+
+            .chat-input button {
+                width: 40px;
+                height: 40px;
+            }
+
+            .input-actions {
+                right: 70px;
+            }
+
+            .emoji-panel {
+                width: 280px;
+                right: 60px;
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.jpg" alt="仙台大学AI教育研究チーム">
+                </a>
+                <button class="mobile-menu-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="team.html">チーム紹介</a></li>
+                    <li class="has-dropdown">
+                        <a href="research.html">研究内容 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="research.html">研究概要</a></li>
+                            <li><a href="research.html">研究プロジェクト</a></li>
+                            <li><a href="research.html">研究成果</a></li>
+                            <li><a href="research.html">共同研究</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="education.html">教育活動 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="education.html#programs">AI教育プログラム</a></li>
+                            <li><a href="education.html#seminars">公開講座・セミナー</a></li>
+                            <li><a href="education.html#materials">教材開発</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="events.html">イベント</a></li>
+                    <li class="has-dropdown">
+                        <a href="publications.html">成果発表 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="publications.html#papers">論文リスト</a></li>
+                            <li><a href="publications.html#conferences">学会発表</a></li>
+                            <li><a href="publications.html#projects">プロジェクト成果</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="contact.html">お問い合わせ <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="contact.html#contact">連絡先</a></li>
+                            <li><a href="contact.html#form">お問い合わせフォーム</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="ai-chat.html" class="active">AI チャット</a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="links.html">関連リンク <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="links.html#university">仙台大学の関連ページ</a></li>
+                            <li><a href="links.html#conferences">学会リンク</a></li>
+                            <li><a href="links.html#sitemap">サイトマップ</a></li>
+                            <li><a href="links.html#privacy">プライバシーポリシー</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="page-hero ai-chat-hero">
+        <div class="container">
+            <h1>AIチャット</h1>
+            <p>リアルタイムでAIと対話し、学習をサポート</p>
+        </div>
+    </section>
+
+    <!-- AI Chat Section -->
+    <section class="ai-chat-section">
+        <div class="container">
+            <h2>AIチャット</h2>
+            <p>AIと対話しながら、スポーツと教育に関する質問に答えてもらえます</p>
+        </div>
+        <div class="chat-container">
+            <!-- Chat Box -->
+            <div class="chat-box">
+                <div class="chat-header">
+                    <h3>
+                        <i class="fas fa-robot"></i>
+                        AIアシスタント
+                    </h3>
+                    <div class="chat-status">
+                        <span class="status-dot"></span>
+                        オンライン
+                    </div>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- 移除预设的欢迎消息，由JavaScript动态添加 -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="メッセージを入力...">
+                    <div class="input-actions">
+                        <button class="input-action-btn" title="添付ファイル">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="input-action-btn" title="絵文字" id="emoji-button">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                    </div>
+                    <div class="emoji-panel" id="emoji-panel">
+                        <!-- Emojis will be added by JavaScript -->
+                    </div>
+                    <button id="send-button" title="送信">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>仙台大学AI教育研究チーム</h3>
+                    <p>最先端のAI技術を活用した教育と研究を推進。</p>
+                    <p>〒989-1693 宮城県柴田郡柴田町船岡南2-2-18</p>
+                    <p>TEL: 0224-55-1121</p>
+                    <p>Email: ai-team@sendai-u.ac.jp</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>リンク</h3>
+                    <ul>
+                        <li><a href="team.html">チーム紹介</a></li>
+                        <li><a href="research.html">研究内容</a></li>
+                        <li><a href="education.html">教育活動</a></li>
+                        <li><a href="publications.html">成果発表</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>最新情報</h3>
+                    <ul>
+                        <li><a href="news.html">ニュース</a></li>
+                        <li><a href="events.html">イベント情報</a></li>
+                        <li><a href="blog.html">ブログ</a></li>
+                        <li><a href="newsletter.html">ニュースレター</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>フォロー</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 仙台大学AI教育研究チーム. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/ai-chat.js"></script>
+</body>
+</html> 
