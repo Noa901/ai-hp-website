@@ -3521,4 +3521,27 @@ section .container {
         padding: 20px;
     }
 }
+
+/* Demo Label */
+.demo-label {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 1001;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .demo-label {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
   
