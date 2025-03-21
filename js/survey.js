@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const otherAffiliation = document.getElementById('otherAffiliation');
     const otherTopic = document.getElementById('otherTopic');
     const futureTopicsError = document.getElementById('future-topics-error');
+    const thankYouPanel = document.getElementById('thankYouPanel');
+    const overlay = document.getElementById('overlay');
 
     // 处理"その他"选项的显示
     document.querySelectorAll('input[name="organization"]').forEach(radio => {
@@ -35,6 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // 显示感谢面板
+    function showThankYouPanel() {
+        thankYouPanel.style.display = 'block';
+        overlay.style.display = 'block';
+        setTimeout(() => {
+            window.location.href = 'https://noa901.github.io/ai-hp-website/events.html';
+        }, 3000);
+    }
+
     // 处理表单提交
     form.addEventListener('submit', function(e) {
         // 验证未来主题选择
@@ -64,5 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('input[name="future_topics[]"]').forEach(checkbox => {
             checkbox.disabled = true;
         });
+
+        // 显示感谢面板
+        showThankYouPanel();
     });
 }); 
