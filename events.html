@@ -173,7 +173,7 @@
                                     position: fixed;
                                     top: 50%;
                                     left: 50%;
-                                    transform: translate(-50%, -50%);
+                                    transform: translate(-50%, -50%) scale(0.7);
                                     background: white;
                                     padding: 30px;
                                     border-radius: 10px;
@@ -181,19 +181,46 @@
                                     text-align: center;
                                     z-index: 1000;
                                     min-width: 300px;
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    transition: all 0.3s ease-in-out;
+                                }
+                                .thank-you-panel.show {
+                                    opacity: 1;
+                                    visibility: visible;
+                                    transform: translate(-50%, -50%) scale(1);
                                 }
                                 .thank-you-panel .fa-check-circle {
                                     color: #28a745;
                                     font-size: 48px;
                                     margin-bottom: 20px;
+                                    transform: scale(0);
+                                    transition: transform 0.5s ease-in-out 0.2s;
+                                }
+                                .thank-you-panel.show .fa-check-circle {
+                                    transform: scale(1);
                                 }
                                 .thank-you-panel h3 {
                                     color: #333;
                                     margin-bottom: 15px;
+                                    opacity: 0;
+                                    transform: translateY(10px);
+                                    transition: all 0.3s ease-in-out 0.3s;
+                                }
+                                .thank-you-panel.show h3 {
+                                    opacity: 1;
+                                    transform: translateY(0);
                                 }
                                 .thank-you-panel p {
                                     color: #666;
                                     line-height: 1.6;
+                                    opacity: 0;
+                                    transform: translateY(10px);
+                                    transition: all 0.3s ease-in-out 0.4s;
+                                }
+                                .thank-you-panel.show p {
+                                    opacity: 1;
+                                    transform: translateY(0);
                                 }
                                 .overlay {
                                     position: fixed;
@@ -203,7 +230,13 @@
                                     bottom: 0;
                                     background: rgba(0, 0, 0, 0.5);
                                     z-index: 999;
-                                    display: none;
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    transition: all 0.3s ease-in-out;
+                                }
+                                .overlay.show {
+                                    opacity: 1;
+                                    visibility: visible;
                                 }
                             </style>
                             <div id="overlay" class="overlay"></div>
