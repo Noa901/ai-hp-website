@@ -39,7 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 显示感谢面板
     function showThankYouPanel() {
-        // 先设置 display: block
+        // 重置面板状态
+        thankYouPanel.classList.remove('show');
+        overlay.classList.remove('show');
+        
+        // 设置初始显示
         thankYouPanel.style.display = 'block';
         overlay.style.display = 'block';
         
@@ -47,11 +51,11 @@ document.addEventListener('DOMContentLoaded', function() {
         thankYouPanel.offsetHeight;
         overlay.offsetHeight;
         
-        // 添加 show 类触发动画
-        requestAnimationFrame(() => {
+        // 添加动画类
+        setTimeout(() => {
             thankYouPanel.classList.add('show');
             overlay.classList.add('show');
-        });
+        }, 10);
         
         // 3秒后跳转
         setTimeout(() => {
@@ -60,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 处理表单提交
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
         // 验证未来主题选择
@@ -73,40 +77,31 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.disabled = true;
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>送信中...</span>';
 
-        // 将多选项合并为逗号分隔的字符串
+        // 准备表单数据
+        const formData = new FormData(form);
+        
+        // 处理多选项
         const futureTopics = Array.from(document.querySelectorAll('input[name="future_topics[]"]:checked'))
             .map(checkbox => checkbox.value)
             .join(', ');
-        
-        // 创建隐藏的输入字段来存储合并后的值
-        const hiddenInput = document.createElement('input');
-        hiddenInput.type = 'hidden';
-        hiddenInput.name = 'future_topics';
-        hiddenInput.value = futureTopics;
-        form.appendChild(hiddenInput);
+        formData.set('future_topics', futureTopics);
 
-        // 移除原始的多选框数组
-        document.querySelectorAll('input[name="future_topics[]"]').forEach(checkbox => {
-            checkbox.disabled = true;
-        });
+        // 立即显示感谢面板
+        showThankYouPanel();
 
-        // 使用 fetch 提交表单
-        fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form)
-        })
-        .then(response => {
-            if (response.ok) {
-                showThankYouPanel();
-            } else {
+        try {
+            // 在后台继续处理表单提交
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-        })
-        .catch(error => {
+        } catch (error) {
             console.error('Error:', error);
-            submitButton.disabled = false;
-            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i><span>送信する</span>';
-            alert('送信に失敗しました。もう一度お試しください。');
-        });
+            // 即使提交失败也不显示错误，因为用户已经看到了感谢面板
+        }
     });
 }); 

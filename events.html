@@ -167,7 +167,7 @@
                         <style>
                             .thank-you-panel {
                                 position: fixed;
-                                top: 50vh;
+                                top: 50%;
                                 left: 50%;
                                 transform: translate(-50%, -50%) scale(0.7);
                                 background: white;
@@ -179,21 +179,21 @@
                                 min-width: 300px;
                                 opacity: 0;
                                 visibility: hidden;
-                                transition: all 0.3s ease-in-out;
-                                display: none;
+                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                                pointer-events: none;
                             }
                             .thank-you-panel.show {
                                 opacity: 1;
                                 visibility: visible;
                                 transform: translate(-50%, -50%) scale(1);
-                                display: block;
+                                pointer-events: auto;
                             }
                             .thank-you-panel .fa-check-circle {
                                 color: #28a745;
                                 font-size: 48px;
                                 margin-bottom: 20px;
                                 transform: scale(0);
-                                transition: transform 0.5s ease-in-out 0.2s;
+                                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
                             }
                             .thank-you-panel.show .fa-check-circle {
                                 transform: scale(1);
@@ -202,8 +202,8 @@
                                 color: #333;
                                 margin-bottom: 15px;
                                 opacity: 0;
-                                transform: translateY(10px);
-                                transition: all 0.3s ease-in-out 0.3s;
+                                transform: translateY(20px);
+                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
                             }
                             .thank-you-panel.show h3 {
                                 opacity: 1;
@@ -213,8 +213,8 @@
                                 color: #666;
                                 line-height: 1.6;
                                 opacity: 0;
-                                transform: translateY(10px);
-                                transition: all 0.3s ease-in-out 0.4s;
+                                transform: translateY(20px);
+                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
                             }
                             .thank-you-panel.show p {
                                 opacity: 1;
@@ -230,13 +230,13 @@
                                 z-index: 999;
                                 opacity: 0;
                                 visibility: hidden;
-                                transition: all 0.3s ease-in-out;
-                                display: none;
+                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                                pointer-events: none;
                             }
                             .overlay.show {
                                 opacity: 1;
                                 visibility: visible;
-                                display: block;
+                                pointer-events: auto;
                             }
                         </style>
                         <div class="survey-container">
