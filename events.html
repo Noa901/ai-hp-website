@@ -155,411 +155,43 @@
                 </div>
                 <div class="event-content">
                     <div class="survey-section">
-                        <!-- 感谢面板 -->
-                        <div id="thankYouPanel" class="thank-you-panel">
-                            <div class="thank-you-content">
-                                <i class="fas fa-check-circle"></i>
-                                <h3>ご回答ありがとうございました</h3>
-                                <p>アンケートの回答を受け付けました。<br>今後の講演会の改善に活用させていただきます。</p>
-                            </div>
-                        </div>
-                        <div id="overlay" class="overlay"></div>
-                        <style>
-                            .thank-you-panel {
-                                position: fixed;
-                                top: 50%;
-                                left: 50%;
-                                transform: translate(-50%, -50%) scale(0.7);
-                                background: white;
-                                padding: 30px;
-                                border-radius: 10px;
-                                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-                                text-align: center;
-                                z-index: 1000;
-                                min-width: 300px;
-                                opacity: 0;
-                                visibility: hidden;
-                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                                pointer-events: none;
-                            }
-                            .thank-you-panel.show {
-                                opacity: 1;
-                                visibility: visible;
-                                transform: translate(-50%, -50%) scale(1);
-                                pointer-events: auto;
-                            }
-                            .thank-you-panel .fa-check-circle {
-                                color: #28a745;
-                                font-size: 48px;
-                                margin-bottom: 20px;
-                                transform: scale(0);
-                                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
-                            }
-                            .thank-you-panel.show .fa-check-circle {
-                                transform: scale(1);
-                            }
-                            .thank-you-panel h3 {
-                                color: #333;
-                                margin-bottom: 15px;
-                                opacity: 0;
-                                transform: translateY(20px);
-                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
-                            }
-                            .thank-you-panel.show h3 {
-                                opacity: 1;
-                                transform: translateY(0);
-                            }
-                            .thank-you-panel p {
-                                color: #666;
-                                line-height: 1.6;
-                                opacity: 0;
-                                transform: translateY(20px);
-                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
-                            }
-                            .thank-you-panel.show p {
-                                opacity: 1;
-                                transform: translateY(0);
-                            }
-                            .overlay {
-                                position: fixed;
-                                top: 0;
-                                left: 0;
-                                width: 100%;
-                                height: 100%;
-                                background: rgba(0, 0, 0, 0.5);
-                                z-index: 999;
-                                opacity: 0;
-                                visibility: hidden;
-                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                                pointer-events: none;
-                            }
-                            .overlay.show {
-                                opacity: 1;
-                                visibility: visible;
-                                pointer-events: auto;
-                            }
-                        </style>
                         <div class="survey-container">
                             <div class="survey-intro">
                                 <h3>ご参加ありがとうございました</h3>
                                 <p>講演会の内容や運営について、ご意見・ご感想をお聞かせください。</p>
                             </div>
-                            <form id="surveyForm" action="https://formsubmit.co/a5671c4fa38a4037658cfcf186aff07f" method="POST">
-                                <!-- FormSubmit配置 -->
-                                <input type="hidden" name="_subject" value="研究講演会事後アンケート - 新規回答">
-                                <input type="hidden" name="_template" value="table">
-                                <input type="hidden" name="_captcha" value="false">
-                                <input type="hidden" name="_autoresponse" value="アンケートの回答ありがとうございました。">
-                                <input type="hidden" name="_next" value="https://noa901.github.io/ai-hp-website/events.html">
-                                <input type="hidden" name="_honey" value="">
-                                <!-- 基本情報 -->
-                                <div class="form-section">
-                                    <h4>基本情報</h4>
-                                    <div class="form-group">
-                                        <label>所属 <span class="required">*</span></label>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="organization" value="教職員" required>
-                                                教職員
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="organization" value="大学院生" required>
-                                                大学院生
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="organization" value="その他" required>
-                                                その他
-                                            </label>
-                                        </div>
-                                        <div class="form-group other-input" style="display: none;">
-                                            <label>ご記入ください：</label>
-                                            <input type="text" name="other_organization">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>職位/学年 <span class="required">*</span></label>
-                                        <input type="text" name="position" required>
-                                    </div>
-                                </div>
-
-                                <!-- 講演評価 -->
-                                <div class="form-section">
-                                    <h4>講演評価</h4>
-                                    <div class="form-group">
-                                        <label>講演会の内容について、どの程度理解できましたか？ <span class="required">*</span></label>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="understanding" value="非常に良く理解できた" required>
-                                                非常に良く理解できた
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="understanding" value="良く理解できた" required>
-                                                良く理解できた
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="understanding" value="ある程度理解できた" required>
-                                                ある程度理解できた
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="understanding" value="あまり理解できなかった" required>
-                                                あまり理解できなかった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="understanding" value="全く理解できなかった" required>
-                                                全く理解できなかった
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>講演会の内容の難易度はいかがでしたか？ <span class="required">*</span></label>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="difficulty" value="非常に難しかった" required>
-                                                非常に難しかった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="difficulty" value="やや難しかった" required>
-                                                やや難しかった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="difficulty" value="適切だった" required>
-                                                適切だった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="difficulty" value="やや易しかった" required>
-                                                やや易しかった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="difficulty" value="非常に易しかった" required>
-                                                非常に易しかった
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>講演会の構成や流れはいかがでしたか？ <span class="required">*</span></label>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="structure" value="非常に良かった" required>
-                                                非常に良かった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="structure" value="良かった" required>
-                                                良かった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="structure" value="普通" required>
-                                                普通
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="structure" value="やや悪かった" required>
-                                                やや悪かった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="structure" value="非常に悪かった" required>
-                                                非常に悪かった
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>講演時間についてはいかがでしたか？ <span class="required">*</span></label>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="duration" value="非常に長かった" required>
-                                                非常に長かった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="duration" value="やや長かった" required>
-                                                やや長かった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="duration" value="適切だった" required>
-                                                適切だった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="duration" value="やや短かった" required>
-                                                やや短かった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="duration" value="非常に短かった" required>
-                                                非常に短かった
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 講演内容について -->
-                                <div class="form-section">
-                                    <h4>講演内容について</h4>
-                                    <div class="form-group">
-                                        <label>講演「生成AIとAI Agent の今」は参考になりましたか？ <span class="required">*</span></label>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="usefulness" value="非常に参考になった" required>
-                                                非常に参考になった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="usefulness" value="参考になった" required>
-                                                参考になった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="usefulness" value="どちらとも言えない" required>
-                                                どちらとも言えない
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="usefulness" value="あまり参考にならなかった" required>
-                                                あまり参考にならなかった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="usefulness" value="全く参考にならなかった" required>
-                                                全く参考にならなかった
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>講演「生成AIとAI Agent の今」について、最も印象に残った点をご記入ください。</label>
-                                        <textarea name="impression" rows="4"></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>「本学AI教育研究チームの取組紹介」は参考になりましたか？ <span class="required">*</span></label>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="team_usefulness" value="非常に参考になった" required>
-                                                非常に参考になった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="team_usefulness" value="参考になった" required>
-                                                参考になった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="team_usefulness" value="どちらとも言えない" required>
-                                                どちらとも言えない
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="team_usefulness" value="あまり参考にならなかった" required>
-                                                あまり参考にならなかった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="team_usefulness" value="全く参考にならなかった" required>
-                                                全く参考にならなかった
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>講演の内容は、あなたの業務や研究に役立つと思われますか？ <span class="required">*</span></label>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="practical_use" value="非常に役立つと思う" required>
-                                                非常に役立つと思う
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="practical_use" value="役立つと思う" required>
-                                                役立つと思う
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="practical_use" value="どちらとも言えない" required>
-                                                どちらとも言えない
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="practical_use" value="あまり役立たないと思う" required>
-                                                あまり役立たないと思う
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="practical_use" value="全く役立たないと思う" required>
-                                                全く役立たないと思う
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 運営について -->
-                                <div class="form-section">
-                                    <h4>運営について</h4>
-                                    <div class="form-group">
-                                        <label>オンライン形式での開催はいかがでしたか？ <span class="required">*</span></label>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="online_format" value="非常に良かった" required>
-                                                非常に良かった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="online_format" value="良かった" required>
-                                                良かった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="online_format" value="普通" required>
-                                                普通
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="online_format" value="やや悪かった" required>
-                                                やや悪かった
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="online_format" value="非常に悪かった" required>
-                                                非常に悪かった
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>運営について改善点があれば教えてください</label>
-                                        <textarea name="improvement_suggestions" rows="4"></textarea>
-                                    </div>
-                                </div>
-
-                                <!-- 今後の講演会について -->
-                                <div class="form-section">
-                                    <h4>今後の講演会について</h4>
-                                    <div class="form-group">
-                                        <label>今後、どのようなテーマの講演会に参加したいと思いますか？ (複数選択可) <span class="required">*</span></label>
-                                        <div class="checkbox-group" id="future-topics-group">
-                                            <label>
-                                                <input type="checkbox" name="future_topics[]" value="生成AIの具体的な活用事例">
-                                                生成AIの具体的な活用事例
-                                            </label>
-                                            <label>
-                                                <input type="checkbox" name="future_topics[]" value="AI Agent の最新動向">
-                                                AI Agent の最新動向
-                                            </label>
-                                            <label>
-                                                <input type="checkbox" name="future_topics[]" value="デジタルヒューマンと教育">
-                                                デジタルヒューマンと教育
-                                            </label>
-                                            <label>
-                                                <input type="checkbox" name="future_topics[]" value="AI倫理">
-                                                AI倫理
-                                            </label>
-                                            <label>
-                                                <input type="checkbox" name="future_topics[]" value="その他">
-                                                その他
-                                            </label>
-                                        </div>
-                                        <div class="form-group other-input" style="display: none;">
-                                            <label>ご記入ください：</label>
-                                            <input type="text" name="other_future_topic">
-                                        </div>
-                                        <div class="error-message" id="future-topics-error" style="display: none; color: #dc3545; font-size: 0.875rem; margin-top: 0.5rem;">
-                                            少なくとも1つのテーマを選択してください。
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- その他 -->
-                                <div class="form-section">
-                                    <h4>その他</h4>
-                                    <div class="form-group">
-                                        <label>講演会全体に関するご意見やご感想、今後の企画へのご要望などがございましたら、ご自由にお書きください。</label>
-                                        <textarea name="other_comments" rows="4"></textarea>
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="action-button"><i class="fas fa-paper-plane"></i><span>送信する</span></button>
-                            </form>
+                            <div class="google-form-container">
+                                <iframe src="YOUR_GOOGLE_FORM_URL" 
+                                    width="100%" 
+                                    height="800px" 
+                                    frameborder="0" 
+                                    marginheight="0" 
+                                    marginwidth="0">
+                                    読み込んでいます...
+                                </iframe>
+                            </div>
+                            <style>
+                                .google-form-container {
+                                    width: 100%;
+                                    max-width: 800px;
+                                    margin: 0 auto;
+                                    padding: 20px;
+                                    background: #fff;
+                                    border-radius: 10px;
+                                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                                }
+                                .google-form-container iframe {
+                                    border-radius: 8px;
+                                }
+                                @media (max-width: 768px) {
+                                    .google-form-container {
+                                        padding: 10px;
+                                    }
+                                    .google-form-container iframe {
+                                        height: 1200px;
+                                    }
+                                }
+                            </style>
                         </div>
                     </div>
                 </div>
@@ -618,6 +250,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/survey.js"></script>
 </body>
 </html> 
