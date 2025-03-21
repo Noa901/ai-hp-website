@@ -41,6 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function showThankYouPanel() {
         thankYouPanel.style.display = 'block';
         overlay.style.display = 'block';
+        // 触发重排以确保过渡动画生效
+        thankYouPanel.offsetHeight;
+        overlay.offsetHeight;
+        
+        thankYouPanel.classList.add('show');
+        overlay.classList.add('show');
+        
         setTimeout(() => {
             window.location.href = 'https://noa901.github.io/ai-hp-website/events.html';
         }, 3000);
