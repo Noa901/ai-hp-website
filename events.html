@@ -582,29 +582,5 @@
 
     <script src="js/main.js"></script>
     <script src="js/survey.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('surveyForm');
-            const thankYouPanel = document.getElementById('thankYouPanel');
-            const overlay = document.getElementById('overlay');
-
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // 显示感谢面板
-                    if (thankYouPanel && overlay) {
-                        thankYouPanel.style.display = 'block';
-                        overlay.style.display = 'block';
-                    }
-
-                    // 3秒后提交表单
-                    setTimeout(() => {
-                        form.submit();
-                    }, 3000);
-                });
-            }
-        });
-    </script>
 </body>
 </html> 
