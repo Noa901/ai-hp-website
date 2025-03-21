@@ -39,15 +39,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 显示感谢面板
     function showThankYouPanel() {
+        // 先设置 display: block
         thankYouPanel.style.display = 'block';
         overlay.style.display = 'block';
-        // 触发重排以确保过渡动画生效
+        
+        // 强制重排
         thankYouPanel.offsetHeight;
         overlay.offsetHeight;
         
-        thankYouPanel.classList.add('show');
-        overlay.classList.add('show');
+        // 添加 show 类触发动画
+        requestAnimationFrame(() => {
+            thankYouPanel.classList.add('show');
+            overlay.classList.add('show');
+        });
         
+        // 3秒后跳转
         setTimeout(() => {
             window.location.href = 'https://noa901.github.io/ai-hp-website/events.html';
         }, 3000);
@@ -91,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (response.ok) {
-                // 提交成功后显示感谢面板
                 showThankYouPanel();
             } else {
                 throw new Error('Network response was not ok');
@@ -99,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error:', error);
-            // 恢复提交按钮状态
             submitButton.disabled = false;
             submitButton.innerHTML = '<i class="fas fa-paper-plane"></i><span>送信する</span>';
             alert('送信に失敗しました。もう一度お試しください。');

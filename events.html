@@ -155,91 +155,95 @@
                 </div>
                 <div class="event-content">
                     <div class="survey-section">
+                        <!-- 感谢面板 -->
+                        <div id="thankYouPanel" class="thank-you-panel">
+                            <div class="thank-you-content">
+                                <i class="fas fa-check-circle"></i>
+                                <h3>ご回答ありがとうございました</h3>
+                                <p>アンケートの回答を受け付けました。<br>今後の講演会の改善に活用させていただきます。</p>
+                            </div>
+                        </div>
+                        <div id="overlay" class="overlay"></div>
+                        <style>
+                            .thank-you-panel {
+                                position: fixed;
+                                top: 50vh;
+                                left: 50%;
+                                transform: translate(-50%, -50%) scale(0.7);
+                                background: white;
+                                padding: 30px;
+                                border-radius: 10px;
+                                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+                                text-align: center;
+                                z-index: 1000;
+                                min-width: 300px;
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: all 0.3s ease-in-out;
+                                display: none;
+                            }
+                            .thank-you-panel.show {
+                                opacity: 1;
+                                visibility: visible;
+                                transform: translate(-50%, -50%) scale(1);
+                                display: block;
+                            }
+                            .thank-you-panel .fa-check-circle {
+                                color: #28a745;
+                                font-size: 48px;
+                                margin-bottom: 20px;
+                                transform: scale(0);
+                                transition: transform 0.5s ease-in-out 0.2s;
+                            }
+                            .thank-you-panel.show .fa-check-circle {
+                                transform: scale(1);
+                            }
+                            .thank-you-panel h3 {
+                                color: #333;
+                                margin-bottom: 15px;
+                                opacity: 0;
+                                transform: translateY(10px);
+                                transition: all 0.3s ease-in-out 0.3s;
+                            }
+                            .thank-you-panel.show h3 {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                            .thank-you-panel p {
+                                color: #666;
+                                line-height: 1.6;
+                                opacity: 0;
+                                transform: translateY(10px);
+                                transition: all 0.3s ease-in-out 0.4s;
+                            }
+                            .thank-you-panel.show p {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                            .overlay {
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background: rgba(0, 0, 0, 0.5);
+                                z-index: 999;
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: all 0.3s ease-in-out;
+                                display: none;
+                            }
+                            .overlay.show {
+                                opacity: 1;
+                                visibility: visible;
+                                display: block;
+                            }
+                        </style>
                         <div class="survey-container">
                             <div class="survey-intro">
                                 <h3>ご参加ありがとうございました</h3>
                                 <p>講演会の内容や運営について、ご意見・ご感想をお聞かせください。</p>
                             </div>
-                            <!-- 感謝パネル -->
-                            <div id="thankYouPanel" style="display: none;" class="thank-you-panel">
-                                <div class="thank-you-content">
-                                    <i class="fas fa-check-circle"></i>
-                                    <h3>ご回答ありがとうございました</h3>
-                                    <p>アンケートの回答を受け付けました。<br>今後の講演会の改善に活用させていただきます。</p>
-                                </div>
-                            </div>
-                            <style>
-                                .thank-you-panel {
-                                    position: fixed;
-                                    top: 50vh;
-                                    left: 50%;
-                                    transform: translate(-50%, -50%) scale(0.7);
-                                    background: white;
-                                    padding: 30px;
-                                    border-radius: 10px;
-                                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-                                    text-align: center;
-                                    z-index: 1000;
-                                    min-width: 300px;
-                                    opacity: 0;
-                                    visibility: hidden;
-                                    transition: all 0.3s ease-in-out;
-                                }
-                                .thank-you-panel.show {
-                                    opacity: 1;
-                                    visibility: visible;
-                                    transform: translate(-50%, -50%) scale(1);
-                                }
-                                .thank-you-panel .fa-check-circle {
-                                    color: #28a745;
-                                    font-size: 48px;
-                                    margin-bottom: 20px;
-                                    transform: scale(0);
-                                    transition: transform 0.5s ease-in-out 0.2s;
-                                }
-                                .thank-you-panel.show .fa-check-circle {
-                                    transform: scale(1);
-                                }
-                                .thank-you-panel h3 {
-                                    color: #333;
-                                    margin-bottom: 15px;
-                                    opacity: 0;
-                                    transform: translateY(10px);
-                                    transition: all 0.3s ease-in-out 0.3s;
-                                }
-                                .thank-you-panel.show h3 {
-                                    opacity: 1;
-                                    transform: translateY(0);
-                                }
-                                .thank-you-panel p {
-                                    color: #666;
-                                    line-height: 1.6;
-                                    opacity: 0;
-                                    transform: translateY(10px);
-                                    transition: all 0.3s ease-in-out 0.4s;
-                                }
-                                .thank-you-panel.show p {
-                                    opacity: 1;
-                                    transform: translateY(0);
-                                }
-                                .overlay {
-                                    position: fixed;
-                                    top: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    height: 100%;
-                                    background: rgba(0, 0, 0, 0.5);
-                                    z-index: 999;
-                                    opacity: 0;
-                                    visibility: hidden;
-                                    transition: all 0.3s ease-in-out;
-                                }
-                                .overlay.show {
-                                    opacity: 1;
-                                    visibility: visible;
-                                }
-                            </style>
-                            <div id="overlay" class="overlay"></div>
                             <form id="surveyForm" action="https://formsubmit.co/a5671c4fa38a4037658cfcf186aff07f" method="POST">
                                 <!-- FormSubmit配置 -->
                                 <input type="hidden" name="_subject" value="研究講演会事後アンケート - 新規回答">
