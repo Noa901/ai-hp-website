@@ -3544,4 +3544,276 @@ section .container {
         font-size: 0.9rem;
     }
 }
+
+/* Education Section Intro */
+.section-intro {
+    text-align: left;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.section-intro h3 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.section-intro p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-intro h3 {
+        font-size: 1.5em;
+    }
+
+    .section-intro p {
+        font-size: 1em;
+    }
+}
+
+/* Contact Section in Education */
+.contact-section {
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px 0;
+}
+
+.contact-section h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00a651;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #008542;
+}
+
+.contact-button i {
+    margin-left: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-intro h3 {
+        font-size: 1.5em;
+    }
+
+    .section-intro p {
+        font-size: 1em;
+    }
+
+    .contact-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+}
+
+/* Survey Section */
+.survey-section {
+    padding: 40px 0;
+    background-color: transparent;
+}
+
+.survey-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.survey-intro {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.survey-intro h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.survey-intro p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Form Sections */
+.form-section {
+    background: transparent;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border: none;
+    box-shadow: none;
+}
+
+.form-section:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+.form-section h4 {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1em;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    background: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00963f;
+    box-shadow: 0 0 0 2px rgba(0, 150, 63, 0.1);
+}
+
+/* Radio and Checkbox Groups */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: normal;
+}
+
+.radio-group label:hover,
+.checkbox-group label:hover {
+    background: rgba(0, 150, 63, 0.05);
+    transform: none;
+    box-shadow: none;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background: #00963f;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    margin-top: 20px;
+}
+
+.action-button:hover {
+    background: #00b74f;
+    transform: translateY(-1px);
+}
+
+.action-button i {
+    margin-right: 8px;
+    font-size: 1em;
+}
+
+/* Other Input */
+.other-input {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* Error Message */
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .survey-section {
+        padding: 20px 0;
+    }
+
+    .form-section {
+        padding: 15px 0;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group select,
+    .form-group textarea {
+        padding: 8px 10px;
+    }
+
+    .action-button {
+        width: 100%;
+    }
+}
   
